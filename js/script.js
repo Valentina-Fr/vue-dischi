@@ -5,7 +5,12 @@ Vue.config.devtools = true;
 const app = new Vue({
   el: '#app',
   data: {
-    albums:{}
+    albums:[]
+  },
+  computed: {
+    yearSort(){
+      return this.albums.sort((a, b) => {return a.year - b.year});
+    }
   },
   methods: {},
   created(){
