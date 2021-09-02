@@ -18,23 +18,20 @@
       </header>
       <main class="container">
         <section id="album-container">
-          <div class="card" v-for="album in yearSort">
+          <div class="card" v-for="album in yearSort"
+          v-if="showGenre(album)">
             <img :src="album.poster" :alt="album.title" />
             <h2 class="title">{{album.title}}</h2>
             <address class="author">{{album.author}}</address>
             <time :datetime="album.year" class="year">{{album.year}}</time>
           </div>
         </section>
+        <select name="genres" id="genres" v-model="musicGenre">
+          <option>All</option>
+          <option v-for="genre in selectGenre">{{genre}}</option>
+        </select>
       </main>
     </div>
-
-
-    <select name="" id="">
-      <option>All</option>
-      <option>Pop</option>
-      <option>Pop</option>
-    </select>
-
 
     <script src="js/script.js"></script>
   </body>
