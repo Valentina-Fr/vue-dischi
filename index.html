@@ -17,6 +17,12 @@
         </div>
       </header>
       <main class="container">
+        <div id="genre-select">
+          <select name="genres" id="genres" v-model="musicGenre">
+            <option>All</option>
+            <option v-for="genre in selectGenre">{{genre}}</option>
+          </select>
+        </div>
         <section id="album-container">
           <div class="card" v-for="album in yearSort"
           v-if="showGenre(album)">
@@ -26,10 +32,6 @@
             <time :datetime="album.year" class="year">{{album.year}}</time>
           </div>
         </section>
-        <select name="genres" id="genres" v-model="musicGenre">
-          <option>All</option>
-          <option v-for="genre in selectGenre">{{genre}}</option>
-        </select>
       </main>
     </div>
 
